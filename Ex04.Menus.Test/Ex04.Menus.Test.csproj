@@ -35,6 +35,7 @@
     <Compile Include="CountSpaces.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="ShowDate.cs" />
+    <Compile Include="ShowTime.cs" />
     <Compile Include="ShowVersion.cs" />
   </ItemGroup>
   <ItemGroup>

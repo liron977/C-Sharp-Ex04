@@ -9,8 +9,8 @@ namespace Ex04.Menus.Test
     {
         public static void Main()
         {
-            DateTime thisDay = DateTime.Today;
-            Console.WriteLine(thisDay.ToString());
+           
+
         }
     }
 }
