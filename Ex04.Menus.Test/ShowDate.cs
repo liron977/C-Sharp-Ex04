@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
-   public class Program
-    {
-        public static void Main()
+        internal class ShowDate : IActionFunction
         {
+            public void FunctionAction()
+            {
             DateTime thisDay = DateTime.Today;
             Console.WriteLine(thisDay.ToString());
+            }
         }
-    }
 }
