@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    class MenuItem
+   public class MenuItem
     {
      
-        private readonly string m_Title;
+        private string m_Title;
 
         public MenuItem(string i_Title)
         {

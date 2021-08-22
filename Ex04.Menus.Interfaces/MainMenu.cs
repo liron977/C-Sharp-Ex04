@@ -5,15 +5,21 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class MainMenu
+    public class MainMenu :Menu
     {
-        readonly Dictionary<string, object> r_MainMenuOptions;
-        private readonly List<MenuItem> r_MenuItemsList = new List<MenuItem>();
-
-     /*   public void MainMenu()
+      public override void Click(int i_UserInput)
         {
 
+            if (r_menuOptionList[i_UserInput-1] is SubMenu) {
+                (r_menuOptionList[i_UserInput-1] as Menu).printMenuList();
+                    }
+            
         }
-*/
+
+        /*   public void MainMenu()
+           {
+
+           }
+   */
     }
 }
