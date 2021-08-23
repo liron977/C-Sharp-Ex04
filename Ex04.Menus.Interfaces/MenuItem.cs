@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-   public class MenuItem
+   public abstract class MenuItem
     {
      
         private string m_Title;
@@ -14,6 +14,8 @@ namespace Ex04.Menus.Interfaces
         {
             m_Title = i_Title;
         }
+        public abstract void RunUserChoise();
+
 
         public string MenuTitle
         {
