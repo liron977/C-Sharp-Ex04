@@ -12,15 +12,15 @@ namespace Ex04.Menus.Test
         {
            
 
-            MainMenu mainMenu = new MainMenu("Exit","Main Interface");
-            SubMenu subMenuVersionAndSpaces = new SubMenu("Back", "Version and Spaces");
-            SubMenu subMenuDateAndTime = new SubMenu("Back", "Date And Time");
-            ActionMenuItem menuItemVersionAndSpaces = new ActionMenuItem("1- Version and Spaces");
-            ActionMenuItem menuItemDateAndTime = new ActionMenuItem("2- Show Date/Time");
-            ActionMenuItem menuItemVersion = new ActionMenuItem("1- Version");
-            ActionMenuItem menuItemSpaces = new ActionMenuItem("2-Spaces");
-            ActionMenuItem menuItemDate = new ActionMenuItem("1-Date");
-            ActionMenuItem menuItemTime = new ActionMenuItem("2-Time");
+            MainMenu mainMenu = new MainMenu("Exit","Main Interface",1);
+            SubMenu subMenuVersionAndSpaces = new SubMenu("Back", "Version and Spaces",2);
+            SubMenu subMenuDateAndTime = new SubMenu("Back", "Date And Time",2);
+            ActionMenuItem menuItemVersionAndSpaces = new ActionMenuItem("Version and Spaces");
+            ActionMenuItem menuItemDateAndTime = new ActionMenuItem("Show Date/Time");
+            ActionMenuItem menuItemVersion = new ActionMenuItem("Version");
+            ActionMenuItem menuItemSpaces = new ActionMenuItem("Spaces");
+            ActionMenuItem menuItemDate = new ActionMenuItem("Date");
+            ActionMenuItem menuItemTime = new ActionMenuItem("Time");
             subMenuVersionAndSpaces.AddNewMenuItemToList(menuItemVersion);
             subMenuVersionAndSpaces.AddNewMenuItemToList(menuItemSpaces);
             subMenuDateAndTime.AddNewMenuItemToList(menuItemDate);
