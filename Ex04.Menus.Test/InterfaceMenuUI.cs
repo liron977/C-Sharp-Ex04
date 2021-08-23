@@ -6,17 +6,15 @@ using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
-   public class MenuUI
+    internal static class InterfaceMenuUI
     {
-        public void RunMenu()
+        public static void RunInterfaceMenu()
         {
-           
 
-            MainMenu mainMenu = new MainMenu("Exit","Main Interface",1);
-            SubMenu subMenuVersionAndSpaces = new SubMenu("Back", "Version and Spaces",2);
-            SubMenu subMenuDateAndTime = new SubMenu("Back", "Date And Time",2);
-            ActionMenuItem menuItemVersionAndSpaces = new ActionMenuItem("Version and Spaces");
-            ActionMenuItem menuItemDateAndTime = new ActionMenuItem("Show Date/Time");
+
+            MainMenu mainMenu = new MainMenu("Exit", "Main Interface", 1);
+            SubMenu subMenuVersionAndSpaces = new SubMenu("Back", "Version and Spaces", 2);
+            SubMenu subMenuDateAndTime = new SubMenu("Back", "Date And Time", 2);
             ActionMenuItem menuItemVersion = new ActionMenuItem("Version");
             ActionMenuItem menuItemSpaces = new ActionMenuItem("Spaces");
             ActionMenuItem menuItemDate = new ActionMenuItem("Date");
@@ -37,5 +35,6 @@ namespace Ex04.Menus.Test
 
             //mainMenu.getUserChoise();
         }
+
     }
 }

@@ -6,7 +6,7 @@ using Ex04.Menus.Interfaces;
 
 namespace Ex04.Menus.Test
 {
-        internal class ShowDate : IActionFunction
+        internal  class ShowDate : IActionFunction
         {
             public void FunctionAction()
             {
