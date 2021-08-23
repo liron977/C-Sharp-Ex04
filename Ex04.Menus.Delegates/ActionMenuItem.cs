@@ -1,27 +1,28 @@
 ﻿namespace Ex04.Menus.Delegates
 {
-    public delegate void Listeners();
+    public delegate void ClickedEventHandler();
+
     public class ActionMenuItem : MenuItem
     {
-        public event Listeners Listeners;
-        public ActionMenuItem(string i_ActionTitle) : base(i_ActionTitle)
-        {
+        public event ClickedEventHandler Clicked;
 
+        public ActionMenuItem(string i_ActionTitle)
+            : base(i_ActionTitle)
+        {
         }
-       
 
-        public void Clicked()
+        private void OnClicked()
         {
-            if(Listeners != null)
+            if(Clicked != null)
             {
-                Listeners.Invoke();
+                System.Console.Clear();
+                Clicked.Invoke();
             }
-            
         }
+
         internal override void RunUserChoice()
         {
-            Clicked();
-
+            OnClicked();
         }
     }
 }

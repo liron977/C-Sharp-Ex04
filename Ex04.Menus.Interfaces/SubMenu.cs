@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 
 namespace Ex04.Menus.Interfaces
@@ -25,20 +26,23 @@ namespace Ex04.Menus.Interfaces
         private void printMenuList()
         {
             int index = 0;
+            StringBuilder menu = new StringBuilder();
 
             Console.Clear();
-            Console.WriteLine(
-                string.Format(
-                    $@"The menu level is : {r_MenuLevel}.
+            menu.Append(string.Format(
+                $@"The menu level is : {r_MenuLevel}.
 {MenuTitle}
 --------------------
 {index} - {r_Quit}"));
-            foreach(MenuItem element in r_MenuItemsList)
+
+            foreach (MenuItem element in r_MenuItemsList)
             {
                 index++;
-
-                Console.WriteLine($@"{index} - {element.MenuTitle}");
+                menu.Append($@"
+{index} - {element.MenuTitle}");
             }
+
+            Console.WriteLine(menu);
         }
 
         internal override void RunUserChoice()
@@ -54,7 +58,7 @@ namespace Ex04.Menus.Interfaces
                 if(userSelectedOption != 0)
                 {
                     r_MenuItemsList[userSelectedOption - 1].RunUserChoice();
-                    Thread.Sleep(600);
+                    Thread.Sleep(1000);
                     Console.Clear();
                 }
             }
@@ -63,8 +67,8 @@ namespace Ex04.Menus.Interfaces
         private void getValidUserInput(out int o_UserSelectedOption)
         {
             bool isValidInput = false;
-            string userInput;
-            bool isParsingSucceeded;
+            string userInput=String.Empty;
+            bool isParsingSucceeded=false;
 
             o_UserSelectedOption = -1;
             while(!isValidInput)

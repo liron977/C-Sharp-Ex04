@@ -4,15 +4,15 @@ namespace Ex04.Menus.Test
 {
     internal static class InterfaceMenuUI
     {
-        public static void RunInterfaceMenu()
+        internal static void RunInterfaceMenu()
         {
             MainMenu mainMenu = new MainMenu("Exit", "Main Interface", 1);
             SubMenu subMenuVersionAndSpaces = new SubMenu("Back", "Version and Spaces", 2);
-            SubMenu subMenuDateAndTime = new SubMenu("Back", "Date And Time", 2);
-            ActionMenuItem menuItemVersion = new ActionMenuItem("Version");
-            ActionMenuItem menuItemSpaces = new ActionMenuItem("Spaces");
-            ActionMenuItem menuItemDate = new ActionMenuItem("Date");
-            ActionMenuItem menuItemTime = new ActionMenuItem("Time");
+            SubMenu subMenuDateAndTime = new SubMenu("Back", "Show Date/Time", 2);
+            ActionMenuItem menuItemVersion = new ActionMenuItem("Show Version");
+            ActionMenuItem menuItemSpaces = new ActionMenuItem("Count Spaces");
+            ActionMenuItem menuItemDate = new ActionMenuItem("Show Date");
+            ActionMenuItem menuItemTime = new ActionMenuItem("Show Time");
 
             subMenuVersionAndSpaces.AddNewMenuItemToList(menuItemVersion);
             subMenuVersionAndSpaces.AddNewMenuItemToList(menuItemSpaces);
@@ -20,10 +20,10 @@ namespace Ex04.Menus.Test
             subMenuDateAndTime.AddNewMenuItemToList(menuItemTime);
             mainMenu.AddNewMenuItemToList(subMenuVersionAndSpaces);
             mainMenu.AddNewMenuItemToList(subMenuDateAndTime);
-            menuItemSpaces.AddNewMenuItemToList(new CountSpaces());
-            menuItemVersion.AddNewMenuItemToList(new ShowVersion());
-            menuItemDate.AddNewMenuItemToList(new ShowDate());
-            menuItemTime.AddNewMenuItemToList(new ShowTime());
+            menuItemSpaces.AddNewListenerToList(new CountSpaces());
+            menuItemVersion.AddNewListenerToList(new ShowVersion());
+            menuItemDate.AddNewListenerToList(new ShowDate());
+            menuItemTime.AddNewListenerToList(new ShowTime());
             mainMenu.PresentMenu();
         }
     }

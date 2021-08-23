@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 
 namespace Ex04.Menus.Delegates
@@ -25,20 +26,23 @@ namespace Ex04.Menus.Delegates
         private void printMenuList()
         {
             int index = 0;
+            StringBuilder menu = new StringBuilder();
 
             Console.Clear();
-            Console.WriteLine(
-                string.Format(
-                    $@"The menu level is : {r_MenuLevel}.
+            menu.Append(string.Format(
+                $@"The menu level is : {r_MenuLevel}.
 {MenuTitle}
 --------------------
 {index} - {r_Quit}"));
+                
             foreach(MenuItem element in r_MenuItemsList)
             {
                 index++;
-
-                Console.WriteLine($@"{index} - {element.MenuTitle}");
+                menu.Append($@"
+{index} - {element.MenuTitle}");
             }
+
+            Console.WriteLine(menu);
         }
 
         internal override void RunUserChoice()
@@ -54,7 +58,7 @@ namespace Ex04.Menus.Delegates
                 if(userSelectedOption != 0)
                 {
                     r_MenuItemsList[userSelectedOption - 1].RunUserChoice();
-                    Thread.Sleep(600);
+                    Thread.Sleep(1000);
                     Console.Clear();
                 }
             }
@@ -63,8 +67,8 @@ namespace Ex04.Menus.Delegates
         private void getValidUserInput(out int o_UserSelectedOption)
         {
             bool isValidInput = false;
-            string userInput;
-            bool isParsingSucceeded;
+            string userInput=string.Empty;
+            bool isParsingSucceeded=false;
 
             o_UserSelectedOption = -1;
             while(!isValidInput)
@@ -73,7 +77,6 @@ namespace Ex04.Menus.Delegates
                     string.Format(
                         $@" 
 Please select an option"));
-
                 userInput = Console.ReadLine();
                 isParsingSucceeded = int.TryParse(userInput, out o_UserSelectedOption);
                 isValidInput = o_UserSelectedOption >= 0 && o_UserSelectedOption <= r_MenuItemsList.Count;

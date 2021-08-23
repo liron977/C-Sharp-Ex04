@@ -11,22 +11,23 @@ namespace Ex04.Menus.Interfaces
         {
         }
 
-        public void AddNewMenuItemToList(IActionFunction i_Listener)
+        public void AddNewListenerToList(IActionFunction i_Listener)
         {
             r_MenuListener.Add(i_Listener);
         }
 
-        public void Clicked()
+        private void clicked()
         {
             foreach(IActionFunction element in r_MenuListener)
             {
+                System.Console.Clear();
                 element.FunctionAction();
             }
         }
 
         internal override void RunUserChoice()
         {
-            Clicked();
+            clicked();
         }
     }
 }

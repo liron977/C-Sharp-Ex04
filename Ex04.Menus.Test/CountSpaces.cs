@@ -7,12 +7,11 @@ namespace Ex04.Menus.Test
     {
         public void FunctionAction()
         {
-            int countSpaces;
-            string userInput;
+            int countSpaces=0;
+            string userInput=string.Empty;
 
             Console.WriteLine("Please enter a string");
             userInput = Console.ReadLine();
-            //string empty;
             countSpaces = countSpacesFunc(userInput);
             Console.WriteLine(string.Format("The number of spaces in the string is : {0} ", countSpaces));
         }

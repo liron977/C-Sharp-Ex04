@@ -11,7 +11,6 @@
 
         internal abstract void RunUserChoice();
 
-
         public string MenuTitle
         {
             get
