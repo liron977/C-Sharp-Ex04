@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Ex04.Menus.Delegates
+﻿namespace Ex04.Menus.Delegates
 {
     public delegate void Listeners();
     public class ActionMenuItem : MenuItem
@@ -23,7 +18,7 @@ namespace Ex04.Menus.Delegates
             }
             
         }
-        public override void RunUserChoise()
+        internal override void RunUserChoice()
         {
             Clicked();
 

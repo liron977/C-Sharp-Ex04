@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading;
 
 namespace Ex04.Menus.Interfaces
 {
     public class SubMenu : MenuItem
     {
-        bool m_Back;
         protected readonly List<MenuItem> r_MenuItemsList = new List<MenuItem>();
         protected readonly string r_Quit;
-        protected readonly int r_MenuLevel = 0;
+        protected readonly int r_MenuLevel;
 
         public SubMenu(string i_Quit, string i_SubMenuTitle, int i_MenuLevel)
             : base(i_SubMenuTitle)
@@ -26,15 +22,15 @@ namespace Ex04.Menus.Interfaces
             r_MenuItemsList.Add(i_NewMenuItem);
         }
 
-        public void printMenuList()
+        private void printMenuList()
         {
             int index = 0;
-            System.Console.Clear();
 
+            Console.Clear();
             Console.WriteLine(
                 string.Format(
                     $@"The menu level is : {r_MenuLevel}.
-{base.MenuTitle}
+{MenuTitle}
 --------------------
 {index} - {r_Quit}"));
             foreach(MenuItem element in r_MenuItemsList)
@@ -45,41 +41,39 @@ namespace Ex04.Menus.Interfaces
             }
         }
 
-        public override void RunUserChoise()
+        internal override void RunUserChoice()
         {
-            String userInput;
-            int userSelectedOption = -1;
+            int userSelectedOption;
             bool quitMenu = false;
+
             while(!quitMenu)
             {
                 printMenuList();
-                getValiduserInput(out userSelectedOption);
+                getValidUserInput(out userSelectedOption);
                 quitMenu = userSelectedOption == 0;
                 if(userSelectedOption != 0)
                 {
-                    r_MenuItemsList[userSelectedOption - 1].RunUserChoise();
+                    r_MenuItemsList[userSelectedOption - 1].RunUserChoice();
                     Thread.Sleep(600);
-                    System.Console.Clear();
+                    Console.Clear();
                 }
             }
         }
 
-        private void getValiduserInput(out int o_userSelectedOption)
+        private void getValidUserInput(out int o_UserSelectedOption)
         {
             bool isValidInput = false;
-            String userInput;
-            bool isParsingSuccessed = true;
-            o_userSelectedOption = -1;
+            string userInput;
+            bool isParsingSucceeded;
+
+            o_UserSelectedOption = -1;
             while(!isValidInput)
             {
-                Console.WriteLine(
-                    string.Format(
-                        $@"Please select an option"));
-
+                Console.WriteLine(string.Format($@"Please select an option"));
                 userInput = Console.ReadLine();
-                isParsingSuccessed = int.TryParse(userInput, out o_userSelectedOption);
-                isValidInput = o_userSelectedOption >= 0 && o_userSelectedOption <= r_MenuItemsList.Count;
-                if((!isValidInput) || (!isParsingSuccessed))
+                isParsingSucceeded = int.TryParse(userInput, out o_UserSelectedOption);
+                isValidInput = o_UserSelectedOption >= 0 && o_UserSelectedOption <= r_MenuItemsList.Count;
+                if((!isValidInput) || (!isParsingSucceeded))
                 {
                     isValidInput = false;
                     Console.WriteLine("Invalid input,please choose an option from the menu");

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Ex04.Menus.Delegates;
+﻿using Ex04.Menus.Delegates;
 
 namespace Ex04.Menus.Test
 {
@@ -21,19 +17,18 @@ namespace Ex04.Menus.Test
             ActionMenuItem menuItemSpaces = new ActionMenuItem("Spaces");
             ActionMenuItem menuItemDate = new ActionMenuItem("Date");
             ActionMenuItem menuItemTime = new ActionMenuItem("Time");
+
             subMenuVersionAndSpaces.AddNewMenuItemToList(menuItemVersion);
             subMenuVersionAndSpaces.AddNewMenuItemToList(menuItemSpaces);
             subMenuDateAndTime.AddNewMenuItemToList(menuItemDate);
             subMenuDateAndTime.AddNewMenuItemToList(menuItemTime);
             mainMenu.AddNewMenuItemToList(subMenuVersionAndSpaces);
             mainMenu.AddNewMenuItemToList(subMenuDateAndTime);
-            menuItemSpaces.Listeners+= countSpacesFunc.FunctionAction;
+            menuItemSpaces.Listeners += countSpacesFunc.FunctionAction;
             menuItemVersion.Listeners += showVersionFunc.FunctionAction;
-            menuItemDate.Listeners+= showDateFunc.FunctionAction;
-            menuItemTime.Listeners+= showTimeFunc.FunctionAction;
+            menuItemDate.Listeners += showDateFunc.FunctionAction;
+            menuItemTime.Listeners += showTimeFunc.FunctionAction;
             mainMenu.PresentMenu();
-
-
         }
     }
 }

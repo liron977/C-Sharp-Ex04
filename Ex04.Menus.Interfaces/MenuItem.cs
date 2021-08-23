@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Ex04.Menus.Interfaces
+﻿namespace Ex04.Menus.Interfaces
 {
-   public abstract class MenuItem
+    public abstract class MenuItem
     {
-     
         private string m_Title;
 
         public MenuItem(string i_Title)
         {
             m_Title = i_Title;
         }
-        public abstract void RunUserChoise();
 
+        internal abstract void RunUserChoice();
 
-        public string MenuTitle
+        internal string MenuTitle
         {
             get
             {

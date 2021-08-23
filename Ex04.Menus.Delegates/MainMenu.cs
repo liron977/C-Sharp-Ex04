@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Ex04.Menus.Delegates
+﻿namespace Ex04.Menus.Delegates
 {
     public class MainMenu : SubMenu
     {
@@ -14,7 +9,7 @@ namespace Ex04.Menus.Delegates
         }
         public void PresentMenu()
         {
-            RunUserChoise();
+            RunUserChoice();
         }
     }
 }
